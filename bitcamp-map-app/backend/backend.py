@@ -175,6 +175,63 @@ def get_elevation_data(encoded_polyline, route_distance, distance_between_points
         print(f"An unexpected error occurred (Elevation): {e}")
         return None
 
+"""
+def assign_line_weights(Point point1, Point point2): # may also need to pass slider as argument 
+    returns the line weight between two different points, considering what the user has set the slider to
+
+"""
+
+# get_elevation_data provides us with a list of data points that contain coordinates and elevation 
+"""
+def sum_line_weights(elevation_data, slider_value):
+    sum = 0
+    # for every point except for the first one 
+    for x in range(1, len(elevation_data)):
+        sum += assign_line_weights(elevation_data[x - 1]['elevation'], elevation_data[x]['elevation'], slider_value) #finding the line weight between two elevations
+
+    return sum 
+
+"""
+"""
+def determine_route(origin, destination, slider_value):
+
+    all_routes_data = get_multiple_routes(origin, destination, mode="walking")
+
+    if all_routes_data is None:
+        print("Failed to retrieve walking routes due to an API or network error.")
+    elif not all_routes_data:
+        print("No walking routes were found between the specified locations.")
+    else:
+        chosen_route_index = -1;
+        min_weight = 0
+        first_route = true 
+
+        for route_info in all_routes_data:
+            route_polyline = route_info.get('encoded_polyline')
+
+            if route_polyline:
+                elevation_data = get_elevation_data(route_info.get('encoded_polyline'), route_info.get('distance_numerical), 5)
+
+                if elevation_data
+                    sum = sum_line_weights(elevation_data, slider_value)
+
+                    if first_route:
+                        first_route = false
+                        min_weight = sum
+                        chosen_route_index = x
+                    else if sum < min_weight:
+                        min_weight = sum
+                        chosen_route_index = x
+                else: 
+                    print("\nCould not retrieve elevation data for the selected route.")
+            else:
+                print("\nSelected route does not have an encoded polyline.")
+
+        if chosen_route_index != -1:
+            return all_routes_data[chosen_route_index]
+"""
+ 
+
 
 # --- Example Usage ---
 if __name__ == "__main__":
@@ -208,7 +265,7 @@ if __name__ == "__main__":
                 # Define how many points you want along the route
                 number_of_elevation_samples = 100 # Adjust as needed
 
-                elevation_data = get_elevation_data(route_info.get('encoded_polyline'), 100, 5)
+                elevation_data = get_elevation_data(route_info.get('encoded_polyline'), route_info.get('distance_numerical'), 5)
 
                 if elevation_data: # Check if data was successfully retrieved (not None or empty)
                     print(f"\n--- Elevation Profile (First 10 points of {len(elevation_data)}) ---")
