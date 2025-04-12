@@ -119,7 +119,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$ClientBody$2e$
 ;
 ;
 const metadata = {
-    title: "Footpath - Stick Your Foot to Find Your Path",
+    title: "Foot Finder - Stick Your Foot to Find Your Path",
     description: "Finds an optimal path based on your preference relative to distance vs elevation."
 };
 function RootLayout({ children }) {

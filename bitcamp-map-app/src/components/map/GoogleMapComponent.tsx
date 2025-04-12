@@ -13,7 +13,7 @@ dotenv.config();
 // Use environment variable for API key (will be replaced with a placeholder for demo purposes)
 const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
 
-if(!GOOGLE_MAPS_API_KEY){
+if (!GOOGLE_MAPS_API_KEY) {
   // you can throw error here and 
   // let [Error Boundary](https://reactjs.org/docs/error-boundaries.html)
   // handle it
@@ -72,7 +72,10 @@ const GoogleMapComponent: React.FC = () => {
         loading: true
       };
 
-      setMarkers(prev => [...prev, newMarker]);
+      setMarkers(prev => {
+        const updatedMarkers = [...prev, newMarker];
+        return updatedMarkers.length > 2 ? updatedMarkers.slice(-2) : updatedMarkers;
+      });
 
       // Get elevation data
       if (elevationServiceRef.current) {
@@ -83,7 +86,7 @@ const GoogleMapComponent: React.FC = () => {
             setMarkers(prev =>
               prev.map(marker =>
                 marker.id === newMarker.id
-                  ? {...marker, elevation: results[0].elevation, loading: false}
+                  ? { ...marker, elevation: results[0].elevation, loading: false }
                   : marker
               )
             );
@@ -91,7 +94,7 @@ const GoogleMapComponent: React.FC = () => {
             setMarkers(prev =>
               prev.map(marker =>
                 marker.id === newMarker.id
-                  ? {...marker, elevation: null, loading: false}
+                  ? { ...marker, elevation: null, loading: false }
                   : marker
               )
             );
@@ -136,7 +139,7 @@ const GoogleMapComponent: React.FC = () => {
                 setMarkers(prev =>
                   prev.map(marker =>
                     marker.id === newMarker.id
-                      ? {...marker, elevation: elevResults[0].elevation, loading: false}
+                      ? { ...marker, elevation: elevResults[0].elevation, loading: false }
                       : marker
                   )
                 );
@@ -144,7 +147,7 @@ const GoogleMapComponent: React.FC = () => {
                 setMarkers(prev =>
                   prev.map(marker =>
                     marker.id === newMarker.id
-                      ? {...marker, elevation: null, loading: false}
+                      ? { ...marker, elevation: null, loading: false }
                       : marker
                   )
                 );
@@ -155,6 +158,22 @@ const GoogleMapComponent: React.FC = () => {
       });
     }
   };
+
+  // Function handles generate
+const handleGenerate = () => {
+  if (markers.length !== 2) {
+    alert("Please place exactly two markers to generate a path.");
+    return;
+  }
+
+  const [start, end] = markers;
+
+  // Example: Log the path start and end
+  console.log("Generating path from:", start.position, "to", end.position);
+
+  // PLACEHOLDER: Call your path-generating logic here
+  // generatePath(start.position, end.position);
+};
 
   // Function to clear all markers
   const clearMarkers = () => {
@@ -227,7 +246,11 @@ const GoogleMapComponent: React.FC = () => {
       </Card>
 
       <div className="mt-4">
-        <h2 className="text-lg font-semibold mb-2">Markers</h2>
+        
+        <Button onClick={handleGenerate}>Generate Path</Button>
+        <br />
+        <br />
+        <h2 className="text-2xl font-semibold text-blue-400">Markers</h2>
         {markers.length > 0 ? (
           <div className="space-y-2">
             {markers.map((marker) => (
@@ -260,7 +283,7 @@ const GoogleMapComponent: React.FC = () => {
             ))}
           </div>
         ) : (
-          <p className="text-muted-foreground">No elevation data. Click on the map to place markers.</p>
+          <p className="text-muted-foreground">Click on the map to place markers.</p>
         )}
       </div>
     </div>

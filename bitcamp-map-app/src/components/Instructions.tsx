@@ -6,7 +6,7 @@ export default function Instructions() {
   return (
     <Card className="mt-6">
       <CardHeader className="pb-2">
-        <CardTitle className="text-lg font-semibold text-primary">Instructions</CardTitle>
+        <CardTitle className="text-lg font-semibold text-blue-400">Instructions</CardTitle>
       </CardHeader>
       <CardContent>
         <p className="mb-2">To use the elevation finder tool:</p>

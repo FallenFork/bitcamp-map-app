@@ -17,11 +17,14 @@ export default function Header() {
 
             <div>
               <h1 className="text-2xl font-semibold">
-                <Link href="/" className="text-gray-700 hover:text-primary">
-                  <span className="text-primary">Travelero</span>
-                </Link>
+                  <span
+                    className="text-3xl bg-gradient-to-r from-blue-400 to-teal-500 bg-clip-text text-transparent"
+                    style={{ fontFamily: "Helvetica, Arial, sans-serif" }}
+                  >
+                    TRAVELERO
+                  </span>
               </h1>
-              <p className="text-sm text-gray-500">Tralelero Tralalah</p>
+              <p className="text-sm text-gray-500">Travelero Tralalah! Half of my heart is in Travelero Tralalah!</p>
             </div>
           </div>
         </div>

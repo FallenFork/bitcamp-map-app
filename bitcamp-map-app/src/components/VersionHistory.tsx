@@ -18,7 +18,7 @@ export default function VersionHistory() {
   return (
     <Card className="mt-6">
       <CardHeader className="pb-2">
-        <CardTitle className="text-lg font-semibold text-primary">Version History</CardTitle>
+        <CardTitle className="text-lg font-semibold text-blue-400">Version History</CardTitle>
       </CardHeader>
       <CardContent>
         <ul className="space-y-1">

@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Footpath - Stick Your Foot to Find Your Path",
+  title: "Foot Finder - Stick Your Foot to Find Your Path",
   description: "Finds an optimal path based on your preference relative to distance vs elevation.",
 };
 
