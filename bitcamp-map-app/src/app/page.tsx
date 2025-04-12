@@ -1,7 +1,6 @@
 "use client";
 
 import Header from "@/components/Header";
-import Sidebar from "@/components/Sidebar";
 import Instructions from "@/components/Instructions";
 import VersionHistory from "@/components/VersionHistory";
 import Footer from "@/components/Footer";
@@ -20,11 +19,6 @@ export default function Home() {
 
       <main className="flex-grow container mx-auto px-4 py-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Sidebar */}
-          <div className="md:col-span-1 order-2 md:order-1">
-            <Sidebar />
-          </div>
-
           {/* Main Content */}
           <div className="md:col-span-3 order-1 md:order-2">
             <div>
@@ -39,7 +33,7 @@ export default function Home() {
 
               <Instructions />
 
-              <VersionHistory />
+              {/* <VersionHistory /> */}
             </div>
           </div>
         </div>

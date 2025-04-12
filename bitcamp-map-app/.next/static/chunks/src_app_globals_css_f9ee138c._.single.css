@@ -348,10 +348,6 @@ body {
   order: 1;
 }
 
-.order-2 {
-  order: 2;
-}
-
 .-mx-1 {
   margin-left: -.25rem;
   margin-right: -.25rem;
@@ -385,10 +381,6 @@ body {
 
 .ml-1 {
   margin-left: .25rem;
-}
-
-.mt-1 {
-  margin-top: .25rem;
 }
 
 .mt-2 {
@@ -583,12 +575,6 @@ body {
   margin-bottom: calc(.5rem * var(--tw-space-y-reverse));
 }
 
-.space-y-6 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
-}
-
 .overflow-hidden {
   overflow: hidden;
 }
@@ -603,10 +589,6 @@ body {
 
 .whitespace-nowrap {
   white-space: nowrap;
-}
-
-.rounded {
-  border-radius: .25rem;
 }
 
 .rounded-md {
@@ -1183,16 +1165,8 @@ body {
 }
 
 @media (width >= 768px) {
-  .md\:order-1 {
-    order: 1;
-  }
-
   .md\:order-2 {
     order: 2;
-  }
-
-  .md\:col-span-1 {
-    grid-column: span 1 / span 1;
   }
 
   .md\:col-span-3 {

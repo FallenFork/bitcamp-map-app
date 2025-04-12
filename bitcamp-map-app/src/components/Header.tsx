@@ -30,12 +30,10 @@ export default function Header() {
             <div>
               <h1 className="text-2xl font-semibold">
                 <Link href="/" className="text-gray-700 hover:text-primary">
-                  <span className="text-gray-600">Free</span>
-                  <span className="text-primary">Map</span>
-                  <span className="text-gray-600">Tools</span>
+                  <span className="text-gray-600">Travelero</span>
                 </Link>
               </h1>
-              <p className="text-sm text-gray-500">Maps you can make use of...</p>
+              <p className="text-sm text-gray-500">??????</p>
             </div>
           </div>
 
