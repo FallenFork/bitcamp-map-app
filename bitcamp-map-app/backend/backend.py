@@ -2,6 +2,7 @@ import googlemaps
 import os
 import json
 from datetime import datetime
+import math 
 import polyline 
 from dotenv import load_dotenv # Optional: for loading API key from .env file
 
@@ -175,14 +176,28 @@ def get_elevation_data(encoded_polyline, route_distance, distance_between_points
         print(f"An unexpected error occurred (Elevation): {e}")
         return None
 
-"""
-def assign_line_weights(Point point1, Point point2): # may also need to pass slider as argument 
-    returns the line weight between two different points, considering what the user has set the slider to
+def assign_line_weights(elevation1, elevation2, slider_value):
+    segment_weight = 0
+    elevation_priority = slider_value # values should range from 0-10 and affect sensitivity to elevation changes
+    delta_elevation = elevation2 - elevation1
+    dist1_2 = 5 # 5 (meters) spacing between points. This may need changing later on to better reflect distances between points in edge cases.
+    # make dist1_2 an argument 
+    angle = math.atan(delta_elevation / dist1_2)
 
-"""
+    # uphill case, apply normal weighting function.
+    if delta_elevation > 0:
+        segment_weight = math.pow(((dist1_2 + delta_elevation) / dist1_2), elevation_priority)
+    # //Extreme downhill case (downward slope > 45 degrees), apply normal weighting function.
+    else:
+        # downhill but too steep
+        if angle < -(math.pi / 4):
+            segment_weight = math.pow(((dist1_2 + delta_elevation) / dist1_2), elevation_priority)
+    # If neither uphill nor extreme downhill, weight of segment is 0.
+    return segment_weight 
+
 
 # get_elevation_data provides us with a list of data points that contain coordinates and elevation 
-"""
+
 def sum_line_weights(elevation_data, slider_value):
     sum = 0
     # for every point except for the first one 
@@ -191,8 +206,6 @@ def sum_line_weights(elevation_data, slider_value):
 
     return sum 
 
-"""
-"""
 def determine_route(origin, destination, slider_value):
 
     all_routes_data = get_multiple_routes(origin, destination, mode="walking")
@@ -202,26 +215,26 @@ def determine_route(origin, destination, slider_value):
     elif not all_routes_data:
         print("No walking routes were found between the specified locations.")
     else:
-        chosen_route_index = -1;
+        chosen_route_index = -1
         min_weight = 0
-        first_route = true 
+        first_route = True 
 
         for route_info in all_routes_data:
             route_polyline = route_info.get('encoded_polyline')
 
             if route_polyline:
-                elevation_data = get_elevation_data(route_info.get('encoded_polyline'), route_info.get('distance_numerical), 5)
+                elevation_data = get_elevation_data(route_info.get('encoded_polyline'), route_info.get('distance_numerical'), 5)
 
-                if elevation_data
+                if elevation_data:
                     sum = sum_line_weights(elevation_data, slider_value)
 
                     if first_route:
-                        first_route = false
+                        first_route = False
                         min_weight = sum
-                        chosen_route_index = x
-                    else if sum < min_weight:
+                        chosen_route_index = route_info.get('index')
+                    elif sum < min_weight:
                         min_weight = sum
-                        chosen_route_index = x
+                        chosen_route_index = route_info.get('index')
                 else: 
                     print("\nCould not retrieve elevation data for the selected route.")
             else:
@@ -229,26 +242,31 @@ def determine_route(origin, destination, slider_value):
 
         if chosen_route_index != -1:
             return all_routes_data[chosen_route_index]
-"""
- 
 
 
 # --- Example Usage ---
 if __name__ == "__main__":
     # Example locations suitable for walking
-    start_location = "Ellicott Hall, 4052 Stadium Dr, College Park, MD 20742"
-    end_location = "William E. Kirwan Hall, 4176 Campus Dr, College Park, MD 20742"
+    start_location = "Yahentamitsi Dining Hall"
+    end_location = "Tawes Hall"
     # start_location = "British Museum, London"
     # end_location = "Trafalgar Square, London"
 
     # Explicitly request walking routes
     all_routes_data = get_multiple_routes(start_location, end_location, mode="walking")
 
+    
+
     if all_routes_data is None:
         print("Failed to retrieve walking routes due to an API or network error.")
     elif not all_routes_data:
         print("No walking routes were found between the specified locations.")
     else:
+        best_route = determine_route(start_location, end_location, 10)
+        print("\n")
+        print(f"\nBest Route: {best_route.get('index')}")
+        print("\n")
+        best_route
         print("\n--- Available Walking Routes ---")
         for route_info in all_routes_data:
             print(f"\nRoute Index: {route_info['index']}")
@@ -266,6 +284,8 @@ if __name__ == "__main__":
                 number_of_elevation_samples = 100 # Adjust as needed
 
                 elevation_data = get_elevation_data(route_info.get('encoded_polyline'), route_info.get('distance_numerical'), 5)
+                print("\nElevation data: ")
+                print(f"{sum_line_weights(elevation_data, 10)}")
 
                 if elevation_data: # Check if data was successfully retrieved (not None or empty)
                     print(f"\n--- Elevation Profile (First 10 points of {len(elevation_data)}) ---")
@@ -289,31 +309,6 @@ if __name__ == "__main__":
             else:
                 print("\nSelected route does not have an encoded polyline.")
             
+            
 
 
-
-
-
-
-        # --- Choosing a Route (Backend Logic Example) ---
-        # Select the first walking route
-        if all_routes_data:
-            chosen_route_index = 0
-            selected_route_data = all_routes_data[chosen_route_index]
-
-            print(f"\n--- Selected Walking Route (Index {chosen_route_index}) ---")
-            print(json.dumps(selected_route_data, indent=2))
-
-            # You can now use this selected route's polyline
-            selected_polyline = selected_route_data['encoded_polyline']
-            print(f"\nSelected Polyline for further use: {selected_polyline}")
-
-        # Example: Select based on shortest distance (more reliable for walking than duration string)
-        # Note: Requires parsing distance string 'X.Y km' or 'Z m' - this is simplified.
-        # A robust solution would parse the numeric value from leg['distance']['value'] (in meters)
-        try:
-            shortest_distance_route = min(all_routes_data, key=lambda r: r['distance_numerical']) # Simple string comparison
-            print(f"\n--- Walking Route with Shortest Distance (approx) ---")
-            print(json.dumps(shortest_distance_route, indent=2))
-        except ValueError:
-             print("\nCould not determine shortest distance route (maybe missing data).")
