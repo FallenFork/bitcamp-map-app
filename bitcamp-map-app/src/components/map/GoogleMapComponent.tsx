@@ -7,8 +7,19 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 
+import dotenv from 'dotenv'
+dotenv.config();
+
 // Use environment variable for API key (will be replaced with a placeholder for demo purposes)
-const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "AIzaSyCCrwtCCqiiPY36JobYhYm0cy3gyoApdyU";
+const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+
+if(!GOOGLE_MAPS_API_KEY){
+  // you can throw error here and 
+  // let [Error Boundary](https://reactjs.org/docs/error-boundaries.html)
+  // handle it
+  // or return an component that says "Google Token is not set"
+  throw new Error('Google token is not set');
+}
 
 // Define container style for the map
 const containerStyle = {
