@@ -106,8 +106,8 @@ def get_multiple_routes(origin, destination, mode="walking"): # Default mode set
 # --- Example Usage ---
 if __name__ == "__main__":
     # Example locations suitable for walking
-    start_location = "Times Square, New York, NY"
-    end_location = "Empire State Building, New York, NY"
+    start_location = "Ellicott Hall, 4052 Stadium Dr, College Park, MD 20742"
+    end_location = "William E. Kirwan Hall, 4176 Campus Dr, College Park, MD 20742"
     # start_location = "British Museum, London"
     # end_location = "Trafalgar Square, London"
 
