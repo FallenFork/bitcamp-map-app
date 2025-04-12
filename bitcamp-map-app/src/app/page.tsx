@@ -33,7 +33,7 @@ export default function Home() {
             <div>
               <h1 className="text-2xl font-bold text-blue-400">Foot Finder</h1>
               <p className="text-gray-600 mb-4">
-                Search a location, click two points on the map, and generate your path based on preferrence for Distance vs. Elevation.
+                Search a location, click two points on the map, and generate your path based on preference for Distance vs. Elevation.
               </p>
               <h1 className="text-2xl font-bold text-blue-400">Select Distance vs Elevation</h1>
               <DistanceElevationSlider onValueChange={handleSliderChange} />

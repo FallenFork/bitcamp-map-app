@@ -123,7 +123,7 @@ function Sidebar() {
                     }, void 0, false, {
                         fileName: "[project]/src/components/Sidebar.tsx",
                         lineNumber: 11,
-                        columnNumber: 8
+                        columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
                         className: "space-y-5 text-base",
@@ -136,7 +136,7 @@ function Sidebar() {
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/Sidebar.tsx",
                                         lineNumber: 14,
-                                        columnNumber: 12
+                                        columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "flex space-x-4 mt-1",
@@ -150,7 +150,7 @@ function Sidebar() {
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/Sidebar.tsx",
                                                 lineNumber: 16,
-                                                columnNumber: 14
+                                                columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                                 href: "mailto:wesleylau0524@gmail.com",
@@ -159,19 +159,19 @@ function Sidebar() {
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/Sidebar.tsx",
                                                 lineNumber: 24,
-                                                columnNumber: 14
+                                                columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/Sidebar.tsx",
                                         lineNumber: 15,
-                                        columnNumber: 12
+                                        columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/Sidebar.tsx",
                                 lineNumber: 13,
-                                columnNumber: 10
+                                columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                 children: [
@@ -181,7 +181,7 @@ function Sidebar() {
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/Sidebar.tsx",
                                         lineNumber: 34,
-                                        columnNumber: 12
+                                        columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "flex space-x-4 mt-1",
@@ -195,7 +195,7 @@ function Sidebar() {
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/Sidebar.tsx",
                                                 lineNumber: 36,
-                                                columnNumber: 14
+                                                columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                                 href: "mailto:lijason433@gmail.com",
@@ -204,19 +204,19 @@ function Sidebar() {
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/Sidebar.tsx",
                                                 lineNumber: 44,
-                                                columnNumber: 14
+                                                columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/Sidebar.tsx",
                                         lineNumber: 35,
-                                        columnNumber: 12
+                                        columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/Sidebar.tsx",
                                 lineNumber: 33,
-                                columnNumber: 10
+                                columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                 children: [
@@ -226,7 +226,7 @@ function Sidebar() {
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/Sidebar.tsx",
                                         lineNumber: 54,
-                                        columnNumber: 12
+                                        columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "flex space-x-4 mt-1",
@@ -240,7 +240,7 @@ function Sidebar() {
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/Sidebar.tsx",
                                                 lineNumber: 56,
-                                                columnNumber: 14
+                                                columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                                 href: "mailto:acmoultn@gmail.com",
@@ -249,19 +249,19 @@ function Sidebar() {
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/Sidebar.tsx",
                                                 lineNumber: 64,
-                                                columnNumber: 14
+                                                columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/Sidebar.tsx",
                                         lineNumber: 55,
-                                        columnNumber: 12
+                                        columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/Sidebar.tsx",
                                 lineNumber: 53,
-                                columnNumber: 10
+                                columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                 children: [
@@ -271,7 +271,7 @@ function Sidebar() {
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/Sidebar.tsx",
                                         lineNumber: 74,
-                                        columnNumber: 12
+                                        columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "flex space-x-4 mt-1",
@@ -285,7 +285,7 @@ function Sidebar() {
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/Sidebar.tsx",
                                                 lineNumber: 76,
-                                                columnNumber: 14
+                                                columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                                 href: "mailto:kostas.paparrizos@gmail.com",
@@ -294,42 +294,47 @@ function Sidebar() {
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/Sidebar.tsx",
                                                 lineNumber: 84,
-                                                columnNumber: 14
+                                                columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/Sidebar.tsx",
                                         lineNumber: 75,
-                                        columnNumber: 12
+                                        columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/Sidebar.tsx",
                                 lineNumber: 73,
-                                columnNumber: 10
+                                columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/Sidebar.tsx",
                         lineNumber: 12,
-                        columnNumber: 8
+                        columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/Sidebar.tsx",
                 lineNumber: 10,
-                columnNumber: 6
+                columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "pt-2",
                 children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
+                        fileName: "[project]/src/components/Sidebar.tsx",
+                        lineNumber: 96,
+                        columnNumber: 9
+                    }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                         className: "text-xl font-semibold mb-3 text-blue-400",
                         children: "Social Media"
                     }, void 0, false, {
                         fileName: "[project]/src/components/Sidebar.tsx",
-                        lineNumber: 96,
-                        columnNumber: 8
+                        lineNumber: 97,
+                        columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
                         className: "space-y-2 text-base",
@@ -342,30 +347,30 @@ function Sidebar() {
                                 children: "Follow Travelero on Instagram!"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Sidebar.tsx",
-                                lineNumber: 99,
-                                columnNumber: 12
+                                lineNumber: 100,
+                                columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/components/Sidebar.tsx",
-                            lineNumber: 98,
-                            columnNumber: 10
+                            lineNumber: 99,
+                            columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/Sidebar.tsx",
-                        lineNumber: 97,
-                        columnNumber: 8
+                        lineNumber: 98,
+                        columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/Sidebar.tsx",
                 lineNumber: 95,
-                columnNumber: 6
+                columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/Sidebar.tsx",
         lineNumber: 9,
-        columnNumber: 4
+        columnNumber: 5
     }, this);
 }
 _c = Sidebar;
@@ -543,28 +548,28 @@ function Instructions() {
                         className: "list-decimal pl-6 space-y-1 mb-4",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                children: "Zoom and pan the map to find the desired location"
+                                children: "Search Desired Location Using Search Bar"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Instructions.tsx",
                                 lineNumber: 14,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                children: "Click on the map to place a marker"
+                                children: "Place Two Markers For Start and End Locations"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Instructions.tsx",
                                 lineNumber: 15,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                children: "You will then see the estimated elevation displayed below the map"
+                                children: "Adjust the Slider to Prioritize Shorter Distances or Travel-Friendly Elevations."
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Instructions.tsx",
                                 lineNumber: 16,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                children: "Click again to place further markers and find the elevation"
+                                children: "Click the “Generate Path” Button to Find the Most Optimized Path Based on Your Preferences"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Instructions.tsx",
                                 lineNumber: 17,
@@ -577,7 +582,7 @@ function Instructions() {
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                        className: "font-semibold mb-2",
+                        className: "text-lg font-semibold text-blue-400",
                         children: "Other Notes:"
                     }, void 0, false, {
                         fileName: "[project]/src/components/Instructions.tsx",
@@ -602,7 +607,7 @@ function Instructions() {
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                children: "Elevations below zero are returned as actual values (unlike some other services)"
+                                children: "Elevations below zero are returned as actual values so be warry of marker location"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Instructions.tsx",
                                 lineNumber: 24,
@@ -941,7 +946,7 @@ function Home() {
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                         className: "text-gray-600 mb-4",
-                                        children: "Search a location, click two points on the map, and generate your path based on preferrence for Distance vs. Elevation."
+                                        children: "Search a location, click two points on the map, and generate your path based on preference for Distance vs. Elevation."
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/page.tsx",
                                         lineNumber: 35,
