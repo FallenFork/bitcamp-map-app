@@ -4,6 +4,7 @@ import json
 from datetime import datetime
 import math 
 import polyline 
+from haversine import haversine, Unit 
 from dotenv import load_dotenv # Optional: for loading API key from .env file
 
 # --- Configuration ---
@@ -191,7 +192,7 @@ def assign_line_weights(elevation1, elevation2, slider_value):
     else:
         # downhill but too steep
         if angle < -(math.pi / 4):
-            segment_weight = math.pow(((dist1_2 + delta_elevation) / dist1_2), elevation_priority)
+            segment_weight = math.pow(((dist1_2 + abs(delta_elevation)) / dist1_2), elevation_priority)
     # If neither uphill nor extreme downhill, weight of segment is 0.
     return segment_weight 
 
@@ -243,12 +244,34 @@ def determine_route(origin, destination, slider_value):
         if chosen_route_index != -1:
             return all_routes_data[chosen_route_index]
 
+# returns the distance between an origin and destination passed as arguments, accepting either location names or coordinates 
+def get_distance(origin, destination):
+    origin_coords = gmaps.geocode(origin)
+    destination_coords = gmaps.geocode(destination)
+
+    origin_lat = origin_coords[0]['geometry']['location']['lat']
+    origin_lng = origin_coords[0]['geometry']['location']['lng']
+    destination_lat = destination_coords[0]['geometry']['location']['lat']
+    destination_lng = destination_coords[0]['geometry']['location']['lng']
+
+    return haversine((origin_lat, origin_lng), (destination_lat, destination_lng))
+
+
+
+
+
+
+
+
+
+
+
 
 # --- Example Usage ---
 if __name__ == "__main__":
     # Example locations suitable for walking
-    start_location = "Yahentamitsi Dining Hall"
-    end_location = "Tawes Hall"
+    start_location = "Peristeri, Greece"
+    end_location = "Thessaloniki, Greece"
     # start_location = "British Museum, London"
     # end_location = "Trafalgar Square, London"
 
@@ -262,6 +285,9 @@ if __name__ == "__main__":
     elif not all_routes_data:
         print("No walking routes were found between the specified locations.")
     else:
+        distance = get_distance(start_location, end_location)
+        print(f"\n:Distance: {distance}")
+        print("\n")
         best_route = determine_route(start_location, end_location, 10)
         print("\n")
         print(f"\nBest Route: {best_route.get('index')}")
