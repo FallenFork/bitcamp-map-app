@@ -227,7 +227,7 @@ const GoogleMapComponent: React.FC = () => {
       </Card>
 
       <div className="mt-4">
-        <h2 className="text-lg font-semibold mb-2">Elevation Results</h2>
+        <h2 className="text-lg font-semibold mb-2">Markers</h2>
         {markers.length > 0 ? (
           <div className="space-y-2">
             {markers.map((marker) => (

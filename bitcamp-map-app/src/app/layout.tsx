@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Elevation Finder - Find Elevation of Any Location",
-  description: "Find an estimate for the elevation of a point on the earth using Google Maps API",
+  title: "Footpath - Stick Your Foot to Find Your Path",
+  description: "Finds an optimal path based on your preference relative to distance vs elevation.",
 };
 
 export default function RootLayout({
