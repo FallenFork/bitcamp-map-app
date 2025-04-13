@@ -84,4 +84,4 @@ def handle_get_distance():
         return jsonify({"error": "Unknown error getting distance"}), 500
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5000)), debug=True)
+    app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 3002)), debug=True)

@@ -135,7 +135,7 @@ var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.sign
 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$dotenv$2f$lib$2f$main$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].config();
 // Use environment variable for API key (will be replaced with a placeholder for demo purposes)
 const GOOGLE_MAPS_API_KEY = ("TURBOPACK compile-time value", "AIzaSyCCrwtCCqiiPY36JobYhYm0cy3gyoApdyU");
-const BACKEND_URL = "http://172.23.30.84:5000";
+const BACKEND_URL = "http://127.0.0.1:3002";
 if ("TURBOPACK compile-time falsy", 0) {
     "TURBOPACK unreachable";
 }
@@ -278,13 +278,11 @@ const GoogleMapComponent = ()=>{
     const geocoderRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const elevationServiceRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     // Initialize map
-    const onLoad = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"])({
-        "GoogleMapComponent.useCallback[onLoad]": (map)=>{
-            setMap(map);
-            geocoderRef.current = new google.maps.Geocoder();
-            elevationServiceRef.current = new google.maps.ElevationService();
-        }
-    }["GoogleMapComponent.useCallback[onLoad]"], []);
+    const onLoad = (map)=>{
+        setMap(map);
+        geocoderRef.current = new google.maps.Geocoder();
+        elevationServiceRef.current = new google.maps.ElevationService();
+    };
     const onUnmount = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"])({
         "GoogleMapComponent.useCallback[onUnmount]": ()=>{
             setMap(null);
@@ -306,11 +304,11 @@ const GoogleMapComponent = ()=>{
                 };
                 setMarkers({
                     "GoogleMapComponent.useCallback[handleMapClick]": (prev)=>{
-                        const updatedMarkers = [
+                        if (prev.length >= 2) return prev;
+                        return [
                             ...prev,
                             newMarker
                         ];
-                        return updatedMarkers.length > 2 ? updatedMarkers.slice(-2) : updatedMarkers;
                     }
                 }["GoogleMapComponent.useCallback[handleMapClick]"]);
                 // Get elevation data
@@ -375,10 +373,7 @@ const GoogleMapComponent = ()=>{
                         elevation: null,
                         loading: true
                     };
-                    setMarkers((prev)=>[
-                            ...prev,
-                            newMarker
-                        ]);
+                    // setMarkers(prev => [...prev, newMarker]);
                     // Get elevation data
                     if (elevationServiceRef.current) {
                         elevationServiceRef.current.getElevationForLocations({
@@ -497,6 +492,7 @@ const GoogleMapComponent = ()=>{
     const clearMarkers = ()=>{
         setMarkers([]);
         setSelectedMarker(null);
+        window.location.reload();
     };
     const handleSliderChange = (value)=>{
         setSliderValue(value);
@@ -508,8 +504,8 @@ const GoogleMapComponent = ()=>{
                 onValueChange: handleSliderChange
             }, void 0, false, {
                 fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                lineNumber: 357,
-                columnNumber: 9
+                lineNumber: 359,
+                columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "mb-4 flex gap-2",
@@ -523,7 +519,7 @@ const GoogleMapComponent = ()=>{
                         className: "flex-grow"
                     }, void 0, false, {
                         fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                        lineNumber: 359,
+                        lineNumber: 361,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -531,22 +527,22 @@ const GoogleMapComponent = ()=>{
                         children: "Search"
                     }, void 0, false, {
                         fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                        lineNumber: 367,
+                        lineNumber: 369,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
                         variant: "outline",
                         onClick: clearMarkers,
-                        children: "Clear Map"
+                        children: "Reset"
                     }, void 0, false, {
                         fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                        lineNumber: 368,
+                        lineNumber: 370,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                lineNumber: 358,
+                lineNumber: 360,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -572,12 +568,16 @@ const GoogleMapComponent = ()=>{
                                 zoomControl: true
                             },
                             children: [
-                                markers.map((marker)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$react$2d$google$2d$maps$2f$api$2f$dist$2f$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Marker"], {
+                                markers.map((marker, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$react$2d$google$2d$maps$2f$api$2f$dist$2f$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Marker"], {
                                         position: marker.position,
-                                        onClick: ()=>setSelectedMarker(marker)
+                                        onClick: ()=>setSelectedMarker(marker),
+                                        label: {
+                                            text: index === 0 ? "Start" : "End",
+                                            className: "text-sm font-semibold text-white bg-blue-400 px-1 py-0.5 rounded"
+                                        }
                                     }, marker.id, false, {
                                         fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                                        lineNumber: 389,
+                                        lineNumber: 391,
                                         columnNumber: 17
                                     }, this)),
                                 selectedMarker && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$react$2d$google$2d$maps$2f$api$2f$dist$2f$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["InfoWindow"], {
@@ -591,7 +591,7 @@ const GoogleMapComponent = ()=>{
                                                 children: "Location Information"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                                                lineNumber: 402,
+                                                lineNumber: 408,
                                                 columnNumber: 21
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -601,7 +601,7 @@ const GoogleMapComponent = ()=>{
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                                                lineNumber: 403,
+                                                lineNumber: 409,
                                                 columnNumber: 21
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -611,7 +611,7 @@ const GoogleMapComponent = ()=>{
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                                                lineNumber: 404,
+                                                lineNumber: 410,
                                                 columnNumber: 21
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -621,18 +621,18 @@ const GoogleMapComponent = ()=>{
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                                                lineNumber: 405,
+                                                lineNumber: 411,
                                                 columnNumber: 21
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                                        lineNumber: 401,
+                                        lineNumber: 407,
                                         columnNumber: 19
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                                    lineNumber: 397,
+                                    lineNumber: 403,
                                     columnNumber: 17
                                 }, this),
                                 routeResult?.encoded_polyline && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$react$2d$google$2d$maps$2f$api$2f$dist$2f$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Polyline"], {
@@ -644,28 +644,28 @@ const GoogleMapComponent = ()=>{
                                     }
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                                    lineNumber: 416,
+                                    lineNumber: 422,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                            lineNumber: 374,
+                            lineNumber: 376,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                        lineNumber: 373,
+                        lineNumber: 375,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                    lineNumber: 372,
+                    lineNumber: 374,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                lineNumber: 371,
+                lineNumber: 373,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -677,7 +677,7 @@ const GoogleMapComponent = ()=>{
                         children: "Generate Path"
                     }, void 0, false, {
                         fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                        lineNumber: 428,
+                        lineNumber: 434,
                         columnNumber: 9
                     }, this),
                     routeResult && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -688,8 +688,8 @@ const GoogleMapComponent = ()=>{
                                 children: "Determined Route Details"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                                lineNumber: 431,
-                                columnNumber: 17
+                                lineNumber: 437,
+                                columnNumber: 13
                             }, this),
                             routeResult.summary && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                 children: [
@@ -697,16 +697,16 @@ const GoogleMapComponent = ()=>{
                                         children: "Summary:"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                                        lineNumber: 432,
-                                        columnNumber: 44
+                                        lineNumber: 438,
+                                        columnNumber: 40
                                     }, this),
                                     " ",
                                     routeResult.summary
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                                lineNumber: 432,
-                                columnNumber: 41
+                                lineNumber: 438,
+                                columnNumber: 37
                             }, this),
                             routeResult.duration_text && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                 children: [
@@ -714,16 +714,16 @@ const GoogleMapComponent = ()=>{
                                         children: "Duration:"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                                        lineNumber: 433,
-                                        columnNumber: 50
+                                        lineNumber: 439,
+                                        columnNumber: 46
                                     }, this),
                                     " ",
                                     routeResult.duration_text
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                                lineNumber: 433,
-                                columnNumber: 47
+                                lineNumber: 439,
+                                columnNumber: 43
                             }, this),
                             routeResult.distance_text && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                 children: [
@@ -731,16 +731,16 @@ const GoogleMapComponent = ()=>{
                                         children: "Distance:"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                                        lineNumber: 434,
-                                        columnNumber: 50
+                                        lineNumber: 440,
+                                        columnNumber: 46
                                     }, this),
                                     " ",
                                     routeResult.distance_text
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                                lineNumber: 434,
-                                columnNumber: 47
+                                lineNumber: 440,
+                                columnNumber: 43
                             }, this),
                             routeResult.slider_input !== undefined && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                 children: [
@@ -748,31 +748,31 @@ const GoogleMapComponent = ()=>{
                                         children: "Slider Value Used:"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                                        lineNumber: 435,
-                                        columnNumber: 63
+                                        lineNumber: 441,
+                                        columnNumber: 59
                                     }, this),
                                     " ",
                                     routeResult.slider_input
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                                lineNumber: 435,
-                                columnNumber: 60
+                                lineNumber: 441,
+                                columnNumber: 56
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                        lineNumber: 430,
-                        columnNumber: 13
+                        lineNumber: 436,
+                        columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                         fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                        lineNumber: 439,
+                        lineNumber: 445,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                         fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                        lineNumber: 440,
+                        lineNumber: 446,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -780,7 +780,7 @@ const GoogleMapComponent = ()=>{
                         children: "Markers"
                     }, void 0, false, {
                         fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                        lineNumber: 441,
+                        lineNumber: 447,
                         columnNumber: 9
                     }, this),
                     markers.length > 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -801,7 +801,7 @@ const GoogleMapComponent = ()=>{
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                                                    lineNumber: 448,
+                                                    lineNumber: 454,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -812,13 +812,13 @@ const GoogleMapComponent = ()=>{
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                                                    lineNumber: 449,
+                                                    lineNumber: 455,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                                            lineNumber: 447,
+                                            lineNumber: 453,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -833,46 +833,46 @@ const GoogleMapComponent = ()=>{
                                             children: "Remove"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                                            lineNumber: 457,
+                                            lineNumber: 463,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                                    lineNumber: 446,
+                                    lineNumber: 452,
                                     columnNumber: 17
                                 }, this)
                             }, marker.id, false, {
                                 fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                                lineNumber: 445,
+                                lineNumber: 451,
                                 columnNumber: 15
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                        lineNumber: 443,
+                        lineNumber: 449,
                         columnNumber: 11
                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                         className: "text-muted-foreground",
                         children: "Click on the map to place markers."
                     }, void 0, false, {
                         fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                        lineNumber: 474,
+                        lineNumber: 480,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-                lineNumber: 426,
+                lineNumber: 432,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/map/GoogleMapComponent.tsx",
-        lineNumber: 356,
+        lineNumber: 358,
         columnNumber: 5
     }, this);
 };
-_s1(GoogleMapComponent, "hdoxPfZrrwhbGky0T6hy8EKe0o0=");
+_s1(GoogleMapComponent, "UvWpYEHkD7fXkTlp3BOqXXnLBAE=");
 _c1 = GoogleMapComponent;
 const __TURBOPACK__default__export__ = GoogleMapComponent;
 var _c, _c1;

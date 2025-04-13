@@ -20,7 +20,7 @@ export default function Instructions() {
         <h3 className="text-lg font-semibold text-blue-400">Other Notes:</h3>
         <ul className="list-disc pl-6 space-y-1">
           <li>You can find the elevation of any marker by clicking on it to see the information window</li>
-          <li>Click clear map to remove all markers from the map</li>
+          <li>Click reset to refresh the map</li>
           <li>Elevations below zero are returned as actual values so be warry of marker location</li>
         </ul>
       </CardContent>
