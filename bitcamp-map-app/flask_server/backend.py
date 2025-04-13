@@ -11,7 +11,7 @@ from dotenv import load_dotenv # Optional: for loading API key from .env file
 # Load API key from environment variable for security
 # Create a .env file in the same directory with: GOOGLE_MAPS_API_KEY=YOUR_ACTUAL_API_KEY
 load_dotenv()
-API_KEY = os.getenv("GOOGLE_MAPS_API_KEY")
+API_KEY = os.getenv("NEXT_PUBLIC_GOOGLE_MAPS_API_KEY")
 
 if not API_KEY:
     raise ValueError("Google Maps API key not found. Set the GOOGLE_MAPS_API_KEY environment variable.")
@@ -179,7 +179,7 @@ def get_elevation_data(encoded_polyline, route_distance, distance_between_points
 
 def assign_line_weights(elevation1, elevation2, slider_value):
     segment_weight = 0
-    elevation_priority = slider_value # values should range from 0-10 and affect sensitivity to elevation changes
+    elevation_priority = int(slider_value)  # values should range from 0-10 and affect sensitivity to elevation changes
     delta_elevation = elevation2 - elevation1
     dist1_2 = 5 # 5 (meters) spacing between points. This may need changing later on to better reflect distances between points in edge cases.
     # make dist1_2 an argument 
@@ -256,85 +256,5 @@ def get_distance(origin, destination):
 
     return haversine((origin_lat, origin_lng), (destination_lat, destination_lng))
 
-
-
-
-
-
-
-
-
-
-
-
-# --- Example Usage ---
-if __name__ == "__main__":
-    # Example locations suitable for walking
-    start_location = "Peristeri, Greece"
-    end_location = "Thessaloniki, Greece"
-    # start_location = "British Museum, London"
-    # end_location = "Trafalgar Square, London"
-
-    # Explicitly request walking routes
-    all_routes_data = get_multiple_routes(start_location, end_location, mode="walking")
-
-    
-
-    if all_routes_data is None:
-        print("Failed to retrieve walking routes due to an API or network error.")
-    elif not all_routes_data:
-        print("No walking routes were found between the specified locations.")
-    else:
-        distance = get_distance(start_location, end_location)
-        print(f"\n:Distance: {distance}")
-        print("\n")
-        best_route = determine_route(start_location, end_location, 10)
-        print("\n")
-        print(f"\nBest Route: {best_route.get('index')}")
-        print("\n")
-        best_route
-        print("\n--- Available Walking Routes ---")
-        for route_info in all_routes_data:
-            print(f"\nRoute Index: {route_info['index']}")
-            print(f"  Summary: {route_info['summary']}") # Summary might be less descriptive for walking
-            print(f"  Duration: {route_info['duration_text']} ({route_info['duration_numerical']} seconds)")
-            print(f"  Distance: {route_info['distance_text']} ({route_info['distance_numerical']} meters)")
-
-            print(f"  Polyline (start): {route_info['encoded_polyline'][:60]}...")
-            # the code below is for extracting and printing the elevation data of the route 
-            
-            route_polyline = route_info.get('encoded_polyline')
-
-            if route_polyline:
-                # Define how many points you want along the route
-                number_of_elevation_samples = 100 # Adjust as needed
-
-                elevation_data = get_elevation_data(route_info.get('encoded_polyline'), route_info.get('distance_numerical'), 5)
-                print("\nElevation data: ")
-                print(f"{sum_line_weights(elevation_data, 10)}")
-
-                if elevation_data: # Check if data was successfully retrieved (not None or empty)
-                    print(f"\n--- Elevation Profile (First 10 points of {len(elevation_data)}) ---")
-                    for i, point in enumerate(elevation_data[:10]): # Print first 10 points as example
-                        lat = point['location']['lat']
-                        lng = point['location']['lng']
-                        elev = point['elevation']
-                        print(f"  Point {i+1}: Lat={lat:.5f}, Lng={lng:.5f}, Elevation={elev:.2f} m")
-
-                    # You now have the list 'elevation_data' containing location and elevation
-                    # for points along the selected route. You can use this for plotting, analysis, etc.
-
-                    # Example: Find min/max elevation
-                    elevations = [p['elevation'] for p in elevation_data if p.get('elevation') is not None]
-                    if elevations:
-                         print(f"\nMin Elevation: {min(elevations):.2f} m")
-                         print(f"Max Elevation: {max(elevations):.2f} m")
-
-                else:
-                    print("\nCould not retrieve elevation data for the selected route.")
-            else:
-                print("\nSelected route does not have an encoded polyline.")
-            
-            
 
 

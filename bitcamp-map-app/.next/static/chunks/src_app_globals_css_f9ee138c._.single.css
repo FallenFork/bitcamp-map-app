@@ -720,6 +720,10 @@ body {
   background-color: hsl(var(--secondary));
 }
 
+.bg-secondary\/50 {
+  background-color: hsl(var(--secondary) / .5);
+}
+
 .bg-transparent {
   background-color: #0000;
 }
@@ -771,6 +775,10 @@ body {
 
 .p-3 {
   padding: .75rem;
+}
+
+.p-4 {
+  padding: 1rem;
 }
 
 .p-6 {

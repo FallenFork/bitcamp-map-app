@@ -5,7 +5,6 @@ import Sidebar from "@/components/Sidebar";
 import Instructions from "@/components/Instructions";
 import VersionHistory from "@/components/VersionHistory";
 import dynamic from "next/dynamic";
-import { DistanceElevationSlider } from "@/components/ui/Slider"
 
 // Dynamically import the map component to avoid SSR issues with the Google Maps API
 const GoogleMapComponent = dynamic(
@@ -36,7 +35,6 @@ export default function Home() {
                 Search a location, click two points on the map, and generate your path based on preference for Distance vs. Elevation.
               </p>
               <h1 className="text-2xl font-bold text-blue-400">Select Distance vs Elevation</h1>
-              <DistanceElevationSlider onValueChange={handleSliderChange} />
 
               <GoogleMapComponent />
 

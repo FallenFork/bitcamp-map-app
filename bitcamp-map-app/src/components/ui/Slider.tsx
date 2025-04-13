@@ -7,12 +7,13 @@ interface DistanceElevationSliderProps {
   onValueChange?: (value: number) => void
 }
 
-export function DistanceElevationSlider({ onValueChange }: DistanceElevationSliderProps) {
+function DistanceElevationSlider({ onValueChange }: DistanceElevationSliderProps) {
   const [value, setValue] = React.useState(50)
 
   const handleValueChange = (newValue: number[]) => {
     setValue(newValue[0])
     onValueChange?.(newValue[0])
+    console.log(newValue[0])
   }
 
   return (
